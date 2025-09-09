@@ -1,0 +1,76 @@
+{
+  "Resources": [
+    {
+      "Name": "SampleImage",
+      "Schema": "i",
+      "IsSampleData": true,
+      "IsWritable": false,
+      "Type": "ResourceInfo",
+      "FileName": "/ctrllib/image/images/SampleImage.svg",
+      "Path": "/ctrllib/image/images/SampleImage.svg",
+      "Content": "Image",
+      "ResourceKind": "Uri",
+      "RootPath": "ms-appx:///ctrllib/image/images/SampleImage.svg"
+    },
+    {
+      "Name": "EA_LOGO_FLUID_V2_ESP_19807",
+      "Schema": "i",
+      "IsSampleData": false,
+      "IsWritable": false,
+      "Type": "ResourceInfo",
+      "FileName": "1277696c-d8c9-41ae-8c15-33c5cb3a2b2e.svg",
+      "Path": "Assets\\Images\\1277696c-d8c9-41ae-8c15-33c5cb3a2b2e.svg",
+      "Content": "Image",
+      "ResourceKind": "LocalFile",
+      "RootPath": "https://dsprdil109eus.blob.core.windows.net/fe2e5a6c-4607-4113-a938-09a2140b2d53-1/resource/MTI3NzY5NmMtZDhjOS00MWFlLThjMTUtMzNjNWNiM2EyYjJl.svg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-09-09T15%3A03%3A30Z&ske=2025-09-10T15%3A18%3A30Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-09-10T15%3A18%3A30Z&sr=b&sp=r&sig=SSoVuvikkbvZymxTdCjTJ9gyE%2FBIaf3omryJKrh43SQ%3D"
+    },
+    {
+      "Name": "EA_LOGO_FLUID_V2_ESP_19808",
+      "Schema": "i",
+      "IsSampleData": false,
+      "IsWritable": false,
+      "Type": "ResourceInfo",
+      "FileName": "536c8710-85f5-4b88-a0ac-2db3cca9399e.svg",
+      "Path": "Assets\\Images\\536c8710-85f5-4b88-a0ac-2db3cca9399e.svg",
+      "Content": "Image",
+      "ResourceKind": "LocalFile",
+      "RootPath": "https://dsprdil109eus.blob.core.windows.net/fe2e5a6c-4607-4113-a938-09a2140b2d53-1/resource/NTM2Yzg3MTAtODVmNS00Yjg4LWEwYWMtMmRiM2NjYTkzOTll.svg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-09-09T15%3A03%3A31Z&ske=2025-09-10T15%3A18%3A31Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-09-10T15%3A18%3A31Z&sr=b&sp=r&sig=wJN6YKsOk09jDwQrspF0kIyiQVGuOHOZY6pgBis8SEM%3D"
+    },
+    {
+      "Name": "EA_LOGO_FLUID_V2_ESP_19809",
+      "Schema": "i",
+      "IsSampleData": false,
+      "IsWritable": false,
+      "Type": "ResourceInfo",
+      "FileName": "98e4402b-8123-4044-b72e-196e3d50d21a.png",
+      "Path": "Assets\\Images\\98e4402b-8123-4044-b72e-196e3d50d21a.png",
+      "Content": "Image",
+      "ResourceKind": "LocalFile",
+      "RootPath": "https://dsprdil109eus.blob.core.windows.net/fe2e5a6c-4607-4113-a938-09a2140b2d53-1/resource/OThlNDQwMmItODEyMy00MDQ0LWI3MmUtMTk2ZTNkNTBkMjFh.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-09-09T15%3A03%3A31Z&ske=2025-09-10T15%3A18%3A31Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-09-10T15%3A18%3A31Z&sr=b&sp=r&sig=amYNgISKeUehLF9XfhHDuWrxhtlUozIh2yKZf2VQPOo%3D"
+    },
+    {
+      "Name": "R",
+      "Schema": "i",
+      "IsSampleData": false,
+      "IsWritable": false,
+      "Type": "ResourceInfo",
+      "FileName": "52a7a695-acc3-4890-8960-22f4c2ece4a8.png",
+      "Path": "Assets\\Images\\52a7a695-acc3-4890-8960-22f4c2ece4a8.png",
+      "Content": "Image",
+      "ResourceKind": "LocalFile",
+      "RootPath": "https://dsprdil109eus.blob.core.windows.net/fe2e5a6c-4607-4113-a938-09a2140b2d53-1/resource/NTJhN2E2OTUtYWNjMy00ODkwLTg5NjAtMjJmNGMyZWNlNGE4.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-09-09T15%3A03%3A31Z&ske=2025-09-10T15%3A18%3A31Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-09-10T15%3A18%3A31Z&sr=b&sp=r&sig=vG6obCbrzvChRzfY2C4U3G%2BAIzw7H4V40tuKh2S5A30%3D"
+    },
+    {
+      "Name": "Gif_carga",
+      "Schema": "i",
+      "IsSampleData": false,
+      "IsWritable": false,
+      "Type": "ResourceInfo",
+      "FileName": "ba08d9a8-25cc-4f16-af49-3f804df1f980.gif",
+      "Path": "Assets\\Images\\ba08d9a8-25cc-4f16-af49-3f804df1f980.gif",
+      "Content": "Image",
+      "ResourceKind": "LocalFile",
+      "RootPath": "https://dsprdil109eus.blob.core.windows.net/fe2e5a6c-4607-4113-a938-09a2140b2d53-1/resource/YmEwOGQ5YTgtMjVjYy00ZjE2LWFmNDktM2Y4MDRkZjFmOTgw.gif?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-09-09T15%3A03%3A31Z&ske=2025-09-10T15%3A18%3A31Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-09-10T15%3A18%3A31Z&sr=b&sp=r&sig=GP%2BFCifgs0sYK10n8O2A6AsSYKFIsvBPvGkDrs3mEZE%3D"
+    }
+  ]
+}

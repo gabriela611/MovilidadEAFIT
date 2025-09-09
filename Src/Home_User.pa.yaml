@@ -1,0 +1,191 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Home_User:
+    Properties:
+      Fill: |+
+        =Self.LoadingSpinnerColor
+      LoadingSpinnerColor: =RGBA(0, 0, 0, 0)
+    Children:
+      - fondo azul:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(240, 239, 255, 1)
+            Height: =590
+            Width: =1096
+            X: =136
+            Y: =178
+      - Header_2:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(0, 27, 113, 1)
+            Height: =124
+            Width: =1366
+      - Rectangle_solicitud:
+          Control: Rectangle@2.3.0
+          Group: realizar soli
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =166
+            HoverFill: =RGBA(0, 18, 107, 1)
+            OnSelect: =Navigate(Menu_Modulos,ScreenTransition.Fade)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            Width: =268
+            X: =255
+            Y: =256
+      - Label2_5:
+          Control: Label@2.5.1
+          Group: realizar soli
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =If(Rectangle_solicitud.HoverFill = RGBA(0, 18, 107, 1),RGBA(0, 18, 107, 1),Color.White)
+            DisabledBorderColor: =RGBA(255, 255, 255, 1)
+            DisabledColor: =
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            HoverColor: =
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Text: ="Realizar solicitud"
+            Width: =164
+            X: =307
+            Y: =277
+      - Rectangle_Capa_Per_1:
+          Control: Rectangle@2.3.0
+          Group: cap personal
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =166
+            HoverFill: =RGBA(0, 18, 107, 1)
+            OnSelect: =Navigate(Form_Capa_Per,ScreenTransition.Fade)
+            Width: =268
+            X: =255
+            Y: =495
+      - Label2_7:
+          Control: Label@2.5.1
+          Group: cap personal
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 27, 113, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            OnSelect: =true
+            Text: ="Capacitación Personal"
+            Width: =164
+            X: =307
+            Y: =515
+      - Rectangle_est_soli:
+          Control: Rectangle@2.3.0
+          Group: estado soli
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =166
+            HoverFill: =RGBA(0, 18, 107, 1)
+            OnSelect: =Navigate(Form_Profesor_Visitante,ScreenTransition.Fade)
+            Width: =268
+            X: =805
+            Y: =256
+      - Label2_6:
+          Control: Label@2.5.1
+          Group: estado soli
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 27, 113, 1)
+            DisabledColor: =RGBA(0, 27, 113, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            OnSelect: =true
+            Text: ="Ver estado de solicitudes"
+            Width: =164
+            X: =857
+            Y: =277
+      - Rectangle_Ver_Mas_1:
+          Control: Rectangle@2.3.0
+          Group: mas opciones
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =166
+            HoverFill: =RGBA(0, 18, 107, 1)
+            OnSelect: =Navigate(Menu_Ver_Mas,ScreenTransition.Fade)
+            Width: =268
+            X: =805
+            Y: =495
+      - Label2_8:
+          Control: Label@2.5.1
+          Group: mas opciones
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(0, 27, 113, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            OnSelect: =true
+            Text: ="Ver más Opciones"
+            Width: =164
+            X: =857
+            Y: =515
+      - Icon4_1:
+          Control: Classic/Icon@2.5.0
+          Group: mas opciones
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            Icon: =Icon.More
+            X: =907
+            Y: =568
+      - titulo:
+          Control: Text@0.0.51
+          Properties:
+            Font: =Font.'Open Sans'
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =75
+            Size: =54
+            Text: ="Registro de Movilidad"
+            Width: =561
+            X: =421
+            Y: =24
+      - logo_1:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Image: =EA_LOGO_FLUID_V2_ESP_19807
+            X: =36
+            Y: =11
+      - Icon1:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            Icon: =Icon.Message
+            X: =357
+            Y: =321
+      - Icon2:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            Icon: =Icon.QuestionMark
+            X: =907
+            Y: =332
