@@ -1,0 +1,23 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Form_Poliza:
+    Children:
+      - Header_4:
+          Control: Rectangle@2.3.0
+          Properties:
+            Fill: =
+            Height: =124
+            Width: =1366
+      - logo_4:
+          Control: Image@2.2.3
+          Properties:
+            Image: =EA_LOGO_FLUID_V2_ESP_19807
+            X: =36
+            Y: =11
