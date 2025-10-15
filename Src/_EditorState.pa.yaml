@@ -11,9 +11,10 @@ EditorState:
     - Pantalla_Carga
     - Home_User
     - Menu_Modulos
-    - Form_Salida
+    - Form_Planta
     - Form_Profesor_Visitante
-    - Form_Capa_Per
+    - Form_Poliza
     - Menu_Ver_Mas
     - Home_Admin
     - Home_Gestor
+    - Profesor_Planta

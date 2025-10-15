@@ -3,6 +3,39 @@
     {
       "EntityName": "PowerAppsTheme",
       "ThemeName": "PowerAppsTheme"
+    },
+    {
+      "EntityName": "PlatinumTheme",
+      "ThemeName": "PlatinumTheme"
+    },
+    {
+      "EntityName": "SteelTheme",
+      "ThemeName": "SteelTheme"
+    },
+    {
+      "EntityName": "SharePointTheme",
+      "ThemeName": "SharePointTheme"
+    },
+    {
+      "EntityName": "OrangeTheme",
+      "ThemeName": "OrangeTheme"
+    },
+    {
+      "EntityName": "RedTheme",
+      "ThemeName": "RedTheme"
+    },
+    {
+      "EntityName": "TeamsTheme",
+      "ThemeName": "TeamsTheme"
+    },
+    {
+      "EntityName": "Eafit",
+      "ThemeName": "Eafit",
+      "BasePaletteColor": "#092162",
+      "HueTorsion": 0,
+      "Vibrancy": 0,
+      "ThemePrimaryColorLocked": false,
+      "Font": "'Segoe UI', 'Open Sans', sans-serif"
     }
   ]
 }

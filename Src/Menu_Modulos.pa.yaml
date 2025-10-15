@@ -16,7 +16,6 @@ Screens:
       - Rectangle1:
           Control: Rectangle@2.3.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
             Fill: =RGBA(240, 239, 255, 1)
             Height: =590
             Width: =1096
@@ -25,19 +24,17 @@ Screens:
       - Header:
           Control: Rectangle@2.3.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
             Fill: =RGBA(0, 27, 113, 1)
             Height: =124
             Width: =1366
       - Rectangle_Salida:
           Control: Rectangle@2.3.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            BorderStyle: =BorderStyle.None
+            BorderThickness: =3
             Fill: =RGBA(255, 255, 255, 1)
             Height: =166
             HoverFill: =RGBA(0, 18, 107, 1)
-            OnSelect: =Navigate(Form_Salida, ScreenTransition.Fade)
+            OnSelect: =Navigate(Form_Planta, ScreenTransition.Fade)
             PressedFill: =RGBA(0, 18, 107, 1)
             Width: =268
             X: =255
@@ -50,25 +47,21 @@ Screens:
             BorderStyle: =BorderStyle.None
             Color: =If(Rectangle_Salida.HoverFill = RGBA(0, 18, 107, 1),RGBA(0, 18, 107, 1),Color.White)
             DisabledBorderColor: =RGBA(255, 255, 255, 1)
-            DisabledColor: =
             DisabledFill: =RGBA(255, 255, 255, 1)
-            Font: =Font.'Open Sans'
-            FontWeight: =FontWeight.Bold
             HoverColor: =
             HoverFill: =RGBA(0, 0, 0, 0)
-            Text: ="Salidas de campo"
+            Text: ="Profesor de planta"
             Width: =164
             X: =307
             Y: =238
       - Rectangle_Capa_Per:
           Control: Rectangle@2.3.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            BorderStyle: =BorderStyle.None
+            BorderThickness: =3
             Fill: =RGBA(255, 255, 255, 1)
             Height: =166
             HoverFill: =RGBA(0, 18, 107, 1)
-            OnSelect: =Navigate(Form_Capa_Per,ScreenTransition.Fade)
+            OnSelect: =Navigate(Form_Poliza,ScreenTransition.Fade)
             Width: =268
             X: =255
             Y: =460
@@ -76,20 +69,16 @@ Screens:
           Control: Label@2.5.1
           Properties:
             Align: =Align.Center
-            BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 27, 113, 1)
-            Font: =Font.'Open Sans'
-            FontWeight: =FontWeight.Bold
             OnSelect: =true
-            Text: ="Capacitación Personal"
+            Text: ="Poliza"
             Width: =164
             X: =307
             Y: =480
       - Rectangle_Prof_Vis:
           Control: Rectangle@2.3.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            BorderStyle: =BorderStyle.None
+            BorderThickness: =3
             Fill: =RGBA(255, 255, 255, 1)
             Height: =166
             HoverFill: =RGBA(0, 18, 107, 1)
@@ -101,11 +90,8 @@ Screens:
           Control: Label@2.5.1
           Properties:
             Align: =Align.Center
-            BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 27, 113, 1)
             DisabledColor: =RGBA(0, 27, 113, 1)
-            Font: =Font.'Open Sans'
-            FontWeight: =FontWeight.Bold
             OnSelect: =true
             Text: ="Profesor Visitante"
             Width: =164
@@ -114,8 +100,7 @@ Screens:
       - Rectangle_Ver_Mas:
           Control: Rectangle@2.3.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            BorderStyle: =BorderStyle.None
+            BorderThickness: =3
             Fill: =RGBA(255, 255, 255, 1)
             Height: =166
             HoverFill: =RGBA(0, 18, 107, 1)
@@ -127,12 +112,9 @@ Screens:
           Control: Label@2.5.1
           Properties:
             Align: =Align.Center
-            BorderColor: =RGBA(0, 18, 107, 1)
             BorderStyle: =BorderStyle.None
             Color: =RGBA(0, 27, 113, 1)
             DisabledColor: =RGBA(0, 0, 0, 1)
-            Font: =Font.'Open Sans'
-            FontWeight: =FontWeight.Bold
             OnSelect: =true
             Text: ="Ver más Opciones"
             Width: =164
@@ -141,32 +123,24 @@ Screens:
       - Icon3:
           Control: Classic/Icon@2.5.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            Color: =RGBA(0, 18, 107, 1)
             Icon: =Icon.Transportation
             X: =357
             Y: =293
       - Icon4:
           Control: Classic/Icon@2.5.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            Color: =RGBA(0, 18, 107, 1)
             Icon: =Icon.More
             X: =907
             Y: =533
       - Icon7:
           Control: Classic/Icon@2.5.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            Color: =RGBA(0, 18, 107, 1)
             Icon: =Icon.Ribbon
             X: =357
-            Y: =545
+            Y: =533
       - Icon8:
           Control: Classic/Icon@2.5.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            Color: =RGBA(0, 18, 107, 1)
             Icon: =Icon.People
             X: =918
             Y: =293
@@ -175,16 +149,16 @@ Screens:
           Properties:
             Font: =Font.'Open Sans'
             FontColor: =RGBA(255, 255, 255, 1)
-            Height: =75
-            Size: =54
+            Height: =33
+            Size: =25
             Text: ="Registro de Movilidad"
-            Width: =561
-            X: =421
-            Y: =24
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =273
+            X: =556
+            Y: =44
       - logo:
           Control: Image@2.2.3
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
             Image: =EA_LOGO_FLUID_V2_ESP_19807
             X: =36
             Y: =11

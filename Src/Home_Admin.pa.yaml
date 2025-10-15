@@ -8,12 +8,152 @@
 # ************************************************************************************************
 Screens:
   Home_Admin:
-    Properties:
-      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
     Children:
-      - TextCanvas3:
+      - fondo azul_2:
+          Control: Rectangle@2.3.0
+          Properties:
+            Fill: =RGBA(240, 239, 255, 1)
+            Height: =590
+            Width: =1096
+            X: =136
+            Y: =178
+      - Header_6:
+          Control: Rectangle@2.3.0
+          Properties:
+            Fill: =RGBA(0, 27, 113, 1)
+            Height: =124
+            Width: =1366
+      - Rectangle_solicitud_2:
+          Control: Rectangle@2.3.0
+          Group: realizar soli_2
+          Properties:
+            BorderThickness: =3
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =166
+            HoverFill: =RGBA(0, 18, 107, 1)
+            OnSelect: =Navigate(Menu_Modulos,ScreenTransition.Fade)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            Width: =268
+            X: =255
+            Y: =256
+      - Label2_13:
+          Control: Label@2.5.1
+          Group: realizar soli_2
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =If(Rectangle_solicitud_2.HoverFill = RGBA(0, 18, 107, 1),RGBA(0, 18, 107, 1),Color.White)
+            DisabledBorderColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            HoverColor: =
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Text: ="Realizar solicitud"
+            Width: =164
+            X: =307
+            Y: =277
+      - Rectangle_Capa_Per_3:
+          Control: Rectangle@2.3.0
+          Group: cap personal_2
+          Properties:
+            BorderColor: =RGBA(9, 33, 98, 1)
+            BorderThickness: =3
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =166
+            HoverFill: =RGBA(0, 18, 107, 1)
+            OnSelect: =Navigate(Form_Poliza,ScreenTransition.Fade)
+            Width: =268
+            X: =255
+            Y: =495
+      - Label2_14:
+          Control: Label@2.5.1
+          Group: cap personal_2
+          Properties:
+            Align: =Align.Center
+            Color: =RGBA(0, 27, 113, 1)
+            OnSelect: =true
+            Text: ="Generar reportes"
+            Width: =164
+            X: =307
+            Y: =515
+      - Rectangle_est_soli_2:
+          Control: Rectangle@2.3.0
+          Group: estado soli_2
+          Properties:
+            BorderColor: =RGBA(12, 59, 94, 1)
+            BorderThickness: =3
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =166
+            HoverFill: =RGBA(0, 18, 107, 1)
+            OnSelect: =Navigate(Form_Profesor_Visitante,ScreenTransition.Fade)
+            Width: =268
+            X: =805
+            Y: =256
+      - Label2_15:
+          Control: Label@2.5.1
+          Group: estado soli_2
+          Properties:
+            Align: =Align.Center
+            Color: =RGBA(0, 27, 113, 1)
+            DisabledColor: =RGBA(0, 27, 113, 1)
+            OnSelect: =true
+            Text: |-
+              ="Ver modulos
+              "
+            Width: =164
+            X: =857
+            Y: =277
+      - Rectangle_Ver_Mas_3:
+          Control: Rectangle@2.3.0
+          Group: mas opciones_2
+          Properties:
+            BorderThickness: =3
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =166
+            HoverFill: =RGBA(0, 18, 107, 1)
+            OnSelect: =Navigate(Menu_Ver_Mas,ScreenTransition.Fade)
+            Width: =268
+            X: =805
+            Y: =495
+      - Label2_16:
+          Control: Label@2.5.1
+          Group: mas opciones_2
+          Properties:
+            Align: =Align.Center
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(0, 27, 113, 1)
+            DisabledColor: =RGBA(0, 0, 0, 1)
+            OnSelect: =true
+            Text: ="Administrar usuarios"
+            Width: =164
+            X: =857
+            Y: =515
+      - titulo_2:
           Control: Text@0.0.51
           Properties:
-            Text: ="Pantalla Admin"
-            X: =40
-            Y: =40
+            Font: =Font.'Open Sans'
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =75
+            Size: =54
+            Text: ="Registro de Movilidad"
+            Width: =561
+            X: =421
+            Y: =24
+      - logo_6:
+          Control: Image@2.2.3
+          Properties:
+            Image: =EA_LOGO_FLUID_V2_ESP_19807
+            X: =36
+            Y: =11
+      - Icon1_2:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            Icon: =Icon.Message
+            X: =357
+            Y: =321
+      - Icon2_2:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            Icon: =Icon.QuestionMark
+            X: =907
+            Y: =332

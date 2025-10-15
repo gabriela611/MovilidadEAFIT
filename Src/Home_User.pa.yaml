@@ -16,7 +16,6 @@ Screens:
       - fondo azul:
           Control: Rectangle@2.3.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
             Fill: =RGBA(240, 239, 255, 1)
             Height: =590
             Width: =1096
@@ -25,7 +24,6 @@ Screens:
       - Header_2:
           Control: Rectangle@2.3.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
             Fill: =RGBA(0, 27, 113, 1)
             Height: =124
             Width: =1366
@@ -33,8 +31,7 @@ Screens:
           Control: Rectangle@2.3.0
           Group: realizar soli
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            BorderStyle: =BorderStyle.None
+            BorderThickness: =3
             Fill: =RGBA(255, 255, 255, 1)
             Height: =166
             HoverFill: =RGBA(0, 18, 107, 1)
@@ -52,10 +49,7 @@ Screens:
             BorderStyle: =BorderStyle.None
             Color: =If(Rectangle_solicitud.HoverFill = RGBA(0, 18, 107, 1),RGBA(0, 18, 107, 1),Color.White)
             DisabledBorderColor: =RGBA(255, 255, 255, 1)
-            DisabledColor: =
             DisabledFill: =RGBA(255, 255, 255, 1)
-            Font: =Font.'Open Sans'
-            FontWeight: =FontWeight.Bold
             HoverColor: =
             HoverFill: =RGBA(0, 0, 0, 0)
             Text: ="Realizar solicitud"
@@ -66,12 +60,12 @@ Screens:
           Control: Rectangle@2.3.0
           Group: cap personal
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            BorderStyle: =BorderStyle.None
+            BorderColor: =RGBA(9, 33, 98, 1)
+            BorderThickness: =3
             Fill: =RGBA(255, 255, 255, 1)
             Height: =166
             HoverFill: =RGBA(0, 18, 107, 1)
-            OnSelect: =Navigate(Form_Capa_Per,ScreenTransition.Fade)
+            OnSelect: =Navigate(Form_Poliza,ScreenTransition.Fade)
             Width: =268
             X: =255
             Y: =495
@@ -80,10 +74,7 @@ Screens:
           Group: cap personal
           Properties:
             Align: =Align.Center
-            BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 27, 113, 1)
-            Font: =Font.'Open Sans'
-            FontWeight: =FontWeight.Bold
             OnSelect: =true
             Text: ="Capacitación Personal"
             Width: =164
@@ -93,8 +84,8 @@ Screens:
           Control: Rectangle@2.3.0
           Group: estado soli
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            BorderStyle: =BorderStyle.None
+            BorderColor: =RGBA(12, 59, 94, 1)
+            BorderThickness: =3
             Fill: =RGBA(255, 255, 255, 1)
             Height: =166
             HoverFill: =RGBA(0, 18, 107, 1)
@@ -107,11 +98,8 @@ Screens:
           Group: estado soli
           Properties:
             Align: =Align.Center
-            BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 27, 113, 1)
             DisabledColor: =RGBA(0, 27, 113, 1)
-            Font: =Font.'Open Sans'
-            FontWeight: =FontWeight.Bold
             OnSelect: =true
             Text: ="Ver estado de solicitudes"
             Width: =164
@@ -121,8 +109,7 @@ Screens:
           Control: Rectangle@2.3.0
           Group: mas opciones
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            BorderStyle: =BorderStyle.None
+            BorderThickness: =3
             Fill: =RGBA(255, 255, 255, 1)
             Height: =166
             HoverFill: =RGBA(0, 18, 107, 1)
@@ -135,12 +122,9 @@ Screens:
           Group: mas opciones
           Properties:
             Align: =Align.Center
-            BorderColor: =RGBA(0, 18, 107, 1)
             BorderStyle: =BorderStyle.None
             Color: =RGBA(0, 27, 113, 1)
             DisabledColor: =RGBA(0, 0, 0, 1)
-            Font: =Font.'Open Sans'
-            FontWeight: =FontWeight.Bold
             OnSelect: =true
             Text: ="Ver más Opciones"
             Width: =164
@@ -150,42 +134,51 @@ Screens:
           Control: Classic/Icon@2.5.0
           Group: mas opciones
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            Color: =RGBA(0, 18, 107, 1)
             Icon: =Icon.More
             X: =907
             Y: =568
-      - titulo:
-          Control: Text@0.0.51
-          Properties:
-            Font: =Font.'Open Sans'
-            FontColor: =RGBA(255, 255, 255, 1)
-            Height: =75
-            Size: =54
-            Text: ="Registro de Movilidad"
-            Width: =561
-            X: =421
-            Y: =24
       - logo_1:
           Control: Image@2.2.3
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
             Image: =EA_LOGO_FLUID_V2_ESP_19807
             X: =36
             Y: =11
       - Icon1:
           Control: Classic/Icon@2.5.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            Color: =RGBA(0, 18, 107, 1)
             Icon: =Icon.Message
             X: =357
             Y: =321
       - Icon2:
           Control: Classic/Icon@2.5.0
           Properties:
-            BorderColor: =RGBA(0, 18, 107, 1)
-            Color: =RGBA(0, 18, 107, 1)
             Icon: =Icon.QuestionMark
             X: =907
             Y: =332
+      - TextCanvas2:
+          Control: Text@0.0.51
+          Properties:
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =30
+            Size: =25
+            Text: ="Bienvenido, " & User().FullName
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =543
+            X: =428
+            Y: =44
+      - TextCanvas4:
+          Control: Text@0.0.51
+          Properties:
+            Height: =29
+            Size: =20
+            Text: ="Selecciona una opción"
+            Weight: ='TextCanvas.Weight'.Bold
+            Width: =210
+            X: =559
+            Y: =201
+      - Icon5:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            Icon: =Icon.People
+            X: =357
+            Y: =568

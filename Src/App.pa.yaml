@@ -9,4 +9,4 @@
 App:
   Properties:
     OnStart: =Set(var_rol,LookUp(Roles,Correo = User().Email).Rol)
-    Theme: =PowerAppsTheme
+    Theme: =Eafit

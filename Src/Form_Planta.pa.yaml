@@ -7,21 +7,21 @@
 # For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
 # ************************************************************************************************
 Screens:
-  Form_Profesor_Visitante:
+  Form_Planta:
     Children:
-      - Header_3:
+      - Header_1:
           Control: Rectangle@2.3.0
           Properties:
             Fill: =RGBA(9, 33, 98, 1)
             Height: =124
             Width: =1366
-      - logo_3:
+      - logo_2:
           Control: Image@2.2.3
           Properties:
             Image: =EA_LOGO_FLUID_V2_ESP_19807
             X: =36
             Y: =11
-      - TextCanvas_1:
+      - TextCanvas:
           Control: Text@0.0.51
           Properties:
             Align: ='TextCanvas.Align'.Center
@@ -29,45 +29,48 @@ Screens:
             FontColor: =RGBA(255, 255, 255, 1)
             Height: =75
             Size: =25
-            Text: ="Profesor Visitante"
+            Text: ="Profesor de planta"
+            Weight: ='TextCanvas.Weight'.Semibold
             Width: =448
             X: =459
             Y: =49
-      - Profesores_Visitantes_Form:
+      - Prof_Planta_form:
           Control: Form@2.4.4
           Layout: Vertical
           Properties:
-            DataSource: =Profesor_Visitante
-            DefaultMode: =FormMode.New
-            X: =132
-            Y: =177
+            DataSource: =BD_Profesores_Planta
+            Height: =462
+            Width: =1246
+            X: =58
+            Y: =180
           Children:
-            - Nombre_DataCard1:
+            - NombreCompleto_Profesor_Planta_DataCard1:
                 Control: TypedDataCard@1.0.7
                 Variant: TextualEdit
+                IsLocked: true
                 Properties:
-                  DataField: ="Nombre"
-                  Default: =ThisItem.Nombre
-                  DisplayName: =DataSourceInfo([@Profesor_Visitante],DataSourceInfo.DisplayName,Nombre)
-                  MaxLength: =DataSourceInfo([@Profesor_Visitante], DataSourceInfo.MaxLength, Nombre)
+                  DataField: ="NombreCompleto_Profesor_Planta"
+                  Default: =ThisItem.NombreCompleto_Profesor_Planta
+                  DisplayName: =DataSourceInfo([@BD_Profesores_Planta],DataSourceInfo.DisplayName,NombreCompleto_Profesor_Planta)
+                  MaxLength: =DataSourceInfo([@BD_Profesores_Planta], DataSourceInfo.MaxLength, NombreCompleto_Profesor_Planta)
                   Required: =false
-                  Update: =DataCardValue1.Value
-                  Width: =266
+                  Update: =DataCardValue2.Value
+                  Width: =415
                   X: =0
                   Y: =0
                 Children:
-                  - DataCardKey1:
+                  - DataCardKey2:
                       Control: Text@0.0.51
                       MetadataKey: FieldName
                       Properties:
                         Height: =22
-                        Text: ="Nombre"
+                        Text: =Parent.DisplayName
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =Parent.Width - 48
                         Wrap: =false
                         X: =24
                         Y: =10
-                  - DataCardValue1:
+                  - DataCardValue2:
                       Control: TextInput@0.0.54
                       MetadataKey: FieldValue
                       Properties:
@@ -79,8 +82,8 @@ Screens:
                         Value: =Parent.Default
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardKey1.Y + DataCardKey1.Height + 4
-                  - ErrorMessage1:
+                        Y: =DataCardKey2.Y + DataCardKey2.Height + 4
+                  - ErrorMessage2:
                       Control: Text@0.0.51
                       MetadataKey: ErrorMessage
                       Properties:
@@ -89,8 +92,8 @@ Screens:
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardValue1.Y + DataCardValue1.Height
-                  - StarVisible1:
+                        Y: =DataCardValue2.Y + DataCardValue2.Height
+                  - StarVisible2:
                       Control: Text@0.0.51
                       MetadataKey: FieldRequired
                       Properties:
@@ -99,33 +102,34 @@ Screens:
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
-                        Y: =DataCardKey1.Y
-            - Correo_DataCard1:
+                        Y: =DataCardKey2.Y
+            - Documento_Profesor_Planta_DataCard1:
                 Control: TypedDataCard@1.0.7
                 Variant: TextualEdit
+                IsLocked: true
                 Properties:
-                  DataField: ="Correo"
-                  Default: =ThisItem.Correo
-                  DisplayName: =DataSourceInfo([@Profesor_Visitante],DataSourceInfo.DisplayName,Correo)
-                  MaxLength: =DataSourceInfo([@Profesor_Visitante], DataSourceInfo.MaxLength, Correo)
+                  DataField: ="Documento_Profesor_Planta"
+                  Default: =ThisItem.Documento_Profesor_Planta
+                  DisplayName: =DataSourceInfo([@BD_Profesores_Planta],DataSourceInfo.DisplayName,Documento_Profesor_Planta)
+                  MaxLength: =DataSourceInfo([@BD_Profesores_Planta], DataSourceInfo.MaxLength, Documento_Profesor_Planta)
                   Required: =false
-                  Update: =DataCardValue3.Value
-                  Width: =266
+                  Update: =DataCardValue12.Value
+                  Width: =415
                   X: =1
                   Y: =0
                 Children:
-                  - DataCardKey3:
+                  - DataCardKey13:
                       Control: Text@0.0.51
                       MetadataKey: FieldName
                       Properties:
                         Height: =22
-                        Text: ="Correo"
+                        Text: =Parent.DisplayName
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =Parent.Width - 48
                         Wrap: =false
                         X: =24
                         Y: =10
-                  - DataCardValue3:
+                  - DataCardValue12:
                       Control: TextInput@0.0.54
                       MetadataKey: FieldValue
                       Properties:
@@ -137,8 +141,8 @@ Screens:
                         Value: =Parent.Default
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardKey3.Y + DataCardKey3.Height + 4
-                  - ErrorMessage3:
+                        Y: =DataCardKey13.Y + DataCardKey13.Height + 4
+                  - ErrorMessage13:
                       Control: Text@0.0.51
                       MetadataKey: ErrorMessage
                       Properties:
@@ -147,8 +151,8 @@ Screens:
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardValue3.Y + DataCardValue3.Height
-                  - StarVisible3:
+                        Y: =DataCardValue12.Y + DataCardValue12.Height
+                  - StarVisible13:
                       Control: Text@0.0.51
                       MetadataKey: FieldRequired
                       Properties:
@@ -157,21 +161,23 @@ Screens:
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
-                        Y: =DataCardKey3.Y
-            - Celular_DataCard1:
+                        Y: =DataCardKey13.Y
+            - Tipo_Documento_Profesor_Planta_DataCard1:
                 Control: TypedDataCard@1.0.7
-                Variant: NumberEdit
+                Variant: TextualEdit
+                IsLocked: true
                 Properties:
-                  DataField: ="Celular"
-                  Default: =ThisItem.Celular
-                  DisplayName: =DataSourceInfo([@Profesor_Visitante],DataSourceInfo.DisplayName,Celular)
+                  DataField: ="Tipo_Documento_Profesor_Planta"
+                  Default: =ThisItem.Tipo_Documento_Profesor_Planta
+                  DisplayName: =DataSourceInfo([@BD_Profesores_Planta],DataSourceInfo.DisplayName,Tipo_Documento_Profesor_Planta)
+                  MaxLength: =DataSourceInfo([@BD_Profesores_Planta], DataSourceInfo.MaxLength, Tipo_Documento_Profesor_Planta)
                   Required: =false
-                  Update: =Value(DataCardValue4.Value)
-                  Width: =266
+                  Update: =DataCardValue13.Value
+                  Width: =415
                   X: =2
                   Y: =0
                 Children:
-                  - DataCardKey4:
+                  - DataCardKey14:
                       Control: Text@0.0.51
                       MetadataKey: FieldName
                       Properties:
@@ -182,122 +188,7 @@ Screens:
                         Wrap: =false
                         X: =24
                         Y: =10
-                  - DataCardValue4:
-                      Control: NumberInput@2.9.12
-                      MetadataKey: FieldValue
-                      Properties:
-                        AccessibleLabel: =Parent.DisplayName
-                        DisplayMode: =Parent.DisplayMode
-                        Max: =Blank()
-                        Min: =Blank()
-                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                        Value: =Parent.Default
-                        Width: =Parent.Width - 48
-                        X: =24
-                        Y: =DataCardKey4.Y + DataCardKey4.Height + 4
-                  - ErrorMessage4:
-                      Control: Text@0.0.51
-                      MetadataKey: ErrorMessage
-                      Properties:
-                        Height: =30
-                        Text: =Parent.Error
-                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =Parent.Width - 48
-                        X: =24
-                        Y: =DataCardValue4.Y + DataCardValue4.Height
-                  - StarVisible4:
-                      Control: Text@0.0.51
-                      MetadataKey: FieldRequired
-                      Properties:
-                        Align: ='TextCanvas.Align'.Center
-                        Height: =30
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Y: =DataCardKey4.Y
-            - Fecha_Nacimiento_DataCard1:
-                Control: TypedDataCard@1.0.7
-                Variant: DateEdit
-                Properties:
-                  DataField: ="Fecha_Nacimiento"
-                  Default: =ThisItem.Fecha_Nacimiento
-                  DisplayName: =DataSourceInfo([@Profesor_Visitante],DataSourceInfo.DisplayName,Fecha_Nacimiento)
-                  Required: =false
-                  Update: =DataCardValue5.SelectedDate
-                  Width: =266
-                  X: =0
-                  Y: =1
-                Children:
-                  - DataCardKey5:
-                      Control: Text@0.0.51
-                      MetadataKey: FieldName
-                      Properties:
-                        Height: =22
-                        Text: =Parent.DisplayName
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =Parent.Width - 48
-                        Wrap: =false
-                        X: =24
-                        Y: =10
-                  - DataCardValue5:
-                      Control: DatePicker@0.0.46
-                      MetadataKey: FieldValue
-                      Properties:
-                        AccessibleLabel: =Parent.DisplayName
-                        DisplayMode: =Parent.DisplayMode
-                        EndDate: =Date(Year(Today())+100, 12, 31)
-                        SelectedDate: =Parent.Default
-                        StartDate: =Date(1900, 1, 1)
-                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                        Width: =Parent.Width - 48
-                        X: =24
-                        Y: =DataCardKey5.Y + DataCardKey5.Height + 4
-                  - ErrorMessage5:
-                      Control: Text@0.0.51
-                      MetadataKey: ErrorMessage
-                      Properties:
-                        Height: =30
-                        Text: =Parent.Error
-                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =Parent.Width - 48
-                        X: =24
-                        Y: =DataCardValue5.Y + DataCardValue5.Height
-                  - StarVisible5:
-                      Control: Text@0.0.51
-                      MetadataKey: FieldRequired
-                      Properties:
-                        Align: ='TextCanvas.Align'.Center
-                        Height: =30
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Y: =DataCardKey5.Y
-            - Direccion_Residencia_DataCard1:
-                Control: TypedDataCard@1.0.7
-                Variant: TextualEdit
-                Properties:
-                  DataField: ="Direccion_Residencia"
-                  Default: =ThisItem.Direccion_Residencia
-                  DisplayName: =DataSourceInfo([@Profesor_Visitante],DataSourceInfo.DisplayName,Direccion_Residencia)
-                  MaxLength: =DataSourceInfo([@Profesor_Visitante], DataSourceInfo.MaxLength, Direccion_Residencia)
-                  Required: =false
-                  Update: =DataCardValue6.Value
-                  Width: =266
-                  X: =1
-                  Y: =1
-                Children:
-                  - DataCardKey6:
-                      Control: Text@0.0.51
-                      MetadataKey: FieldName
-                      Properties:
-                        Height: =22
-                        Text: =Parent.DisplayName
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =Parent.Width - 48
-                        Wrap: =false
-                        X: =24
-                        Y: =10
-                  - DataCardValue6:
+                  - DataCardValue13:
                       Control: TextInput@0.0.54
                       MetadataKey: FieldValue
                       Properties:
@@ -309,8 +200,8 @@ Screens:
                         Value: =Parent.Default
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardKey6.Y + DataCardKey6.Height + 4
-                  - ErrorMessage6:
+                        Y: =DataCardKey14.Y + DataCardKey14.Height + 4
+                  - ErrorMessage14:
                       Control: Text@0.0.51
                       MetadataKey: ErrorMessage
                       Properties:
@@ -319,8 +210,8 @@ Screens:
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardValue6.Y + DataCardValue6.Height
-                  - StarVisible6:
+                        Y: =DataCardValue13.Y + DataCardValue13.Height
+                  - StarVisible14:
                       Control: Text@0.0.51
                       MetadataKey: FieldRequired
                       Properties:
@@ -329,22 +220,141 @@ Screens:
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
-                        Y: =DataCardKey6.Y
-            - Responsable_Movilidad_DataCard1:
+                        Y: =DataCardKey14.Y
+            - Correo_Profesor_Planta_DataCard1:
                 Control: TypedDataCard@1.0.7
                 Variant: TextualEdit
+                IsLocked: true
                 Properties:
-                  DataField: ="Responsable_Movilidad"
-                  Default: =ThisItem.Responsable_Movilidad
-                  DisplayName: =DataSourceInfo([@Profesor_Visitante],DataSourceInfo.DisplayName,Responsable_Movilidad)
-                  MaxLength: =DataSourceInfo([@Profesor_Visitante], DataSourceInfo.MaxLength, Responsable_Movilidad)
+                  DataField: ="Correo_Profesor_Planta"
+                  Default: =ThisItem.Correo_Profesor_Planta
+                  DisplayName: =DataSourceInfo([@BD_Profesores_Planta],DataSourceInfo.DisplayName,Correo_Profesor_Planta)
+                  MaxLength: =DataSourceInfo([@BD_Profesores_Planta], DataSourceInfo.MaxLength, Correo_Profesor_Planta)
                   Required: =false
-                  Update: =DataCardValue7.Value
-                  Width: =266
+                  Update: =DataCardValue14.Value
+                  Width: =415
+                  X: =0
+                  Y: =1
+                Children:
+                  - DataCardKey15:
+                      Control: Text@0.0.51
+                      MetadataKey: FieldName
+                      Properties:
+                        Height: =22
+                        Text: =Parent.DisplayName
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue14:
+                      Control: TextInput@0.0.54
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        DisplayMode: =Parent.DisplayMode
+                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                        Required: =Parent.Required
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey15.Y + DataCardKey15.Height + 4
+                  - ErrorMessage15:
+                      Control: Text@0.0.51
+                      MetadataKey: ErrorMessage
+                      Properties:
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardValue14.Y + DataCardValue14.Height
+                  - StarVisible15:
+                      Control: Text@0.0.51
+                      MetadataKey: FieldRequired
+                      Properties:
+                        Align: ='TextCanvas.Align'.Center
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Y: =DataCardKey15.Y
+            - Escuela_DataCard1:
+                Control: TypedDataCard@1.0.7
+                Variant: TextualEdit
+                IsLocked: true
+                Properties:
+                  DataField: ="Escuela"
+                  Default: =ThisItem.Escuela
+                  DisplayName: =DataSourceInfo([@BD_Profesores_Planta],DataSourceInfo.DisplayName,Escuela)
+                  MaxLength: =DataSourceInfo([@BD_Profesores_Planta], DataSourceInfo.MaxLength, Escuela)
+                  Required: =false
+                  Update: =DataCardValue15.Value
+                  Width: =415
+                  X: =1
+                  Y: =1
+                Children:
+                  - DataCardKey16:
+                      Control: Text@0.0.51
+                      MetadataKey: FieldName
+                      Properties:
+                        Height: =22
+                        Text: =Parent.DisplayName
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue15:
+                      Control: TextInput@0.0.54
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        DisplayMode: =Parent.DisplayMode
+                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                        Required: =Parent.Required
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey16.Y + DataCardKey16.Height + 4
+                  - ErrorMessage16:
+                      Control: Text@0.0.51
+                      MetadataKey: ErrorMessage
+                      Properties:
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardValue15.Y + DataCardValue15.Height
+                  - StarVisible16:
+                      Control: Text@0.0.51
+                      MetadataKey: FieldRequired
+                      Properties:
+                        Align: ='TextCanvas.Align'.Center
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Y: =DataCardKey16.Y
+            - Nivel_Maximo_Estudios_DataCard1:
+                Control: TypedDataCard@1.0.7
+                Variant: TextualEdit
+                IsLocked: true
+                Properties:
+                  DataField: ="Nivel_Maximo_Estudios"
+                  Default: =ThisItem.Nivel_Maximo_Estudios
+                  DisplayName: =DataSourceInfo([@BD_Profesores_Planta],DataSourceInfo.DisplayName,Nivel_Maximo_Estudios)
+                  MaxLength: =DataSourceInfo([@BD_Profesores_Planta], DataSourceInfo.MaxLength, Nivel_Maximo_Estudios)
+                  Required: =false
+                  Update: =DataCardValue16.Value
+                  Width: =415
                   X: =2
                   Y: =1
                 Children:
-                  - DataCardKey7:
+                  - DataCardKey17:
                       Control: Text@0.0.51
                       MetadataKey: FieldName
                       Properties:
@@ -355,7 +365,7 @@ Screens:
                         Wrap: =false
                         X: =24
                         Y: =10
-                  - DataCardValue7:
+                  - DataCardValue16:
                       Control: TextInput@0.0.54
                       MetadataKey: FieldValue
                       Properties:
@@ -367,8 +377,8 @@ Screens:
                         Value: =Parent.Default
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardKey7.Y + DataCardKey7.Height + 4
-                  - ErrorMessage7:
+                        Y: =DataCardKey17.Y + DataCardKey17.Height + 4
+                  - ErrorMessage17:
                       Control: Text@0.0.51
                       MetadataKey: ErrorMessage
                       Properties:
@@ -377,8 +387,8 @@ Screens:
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardValue7.Y + DataCardValue7.Height
-                  - StarVisible7:
+                        Y: =DataCardValue16.Y + DataCardValue16.Height
+                  - StarVisible17:
                       Control: Text@0.0.51
                       MetadataKey: FieldRequired
                       Properties:
@@ -387,22 +397,23 @@ Screens:
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
-                        Y: =DataCardKey7.Y
-            - Tipo_y_Caracter_Movilidad_DataCard1:
+                        Y: =DataCardKey17.Y
+            - Título_DataCard1:
                 Control: TypedDataCard@1.0.7
                 Variant: TextualEdit
+                IsLocked: true
                 Properties:
-                  DataField: ="Tipo_y_Caracter_Movilidad"
-                  Default: =ThisItem.Tipo_y_Caracter_Movilidad
-                  DisplayName: =DataSourceInfo([@Profesor_Visitante],DataSourceInfo.DisplayName,Tipo_y_Caracter_Movilidad)
-                  MaxLength: =DataSourceInfo([@Profesor_Visitante], DataSourceInfo.MaxLength, Tipo_y_Caracter_Movilidad)
+                  DataField: ="Title"
+                  Default: =ThisItem.Título
+                  DisplayName: =DataSourceInfo([@BD_Profesores_Planta],DataSourceInfo.DisplayName,Title)
+                  MaxLength: =DataSourceInfo([@BD_Profesores_Planta], DataSourceInfo.MaxLength, Title)
                   Required: =false
-                  Update: =DataCardValue8.Value
-                  Width: =266
+                  Update: =DataCardValue17.Value
+                  Width: =415
                   X: =0
                   Y: =2
                 Children:
-                  - DataCardKey8:
+                  - DataCardKey18:
                       Control: Text@0.0.51
                       MetadataKey: FieldName
                       Properties:
@@ -413,7 +424,7 @@ Screens:
                         Wrap: =false
                         X: =24
                         Y: =10
-                  - DataCardValue8:
+                  - DataCardValue17:
                       Control: TextInput@0.0.54
                       MetadataKey: FieldValue
                       Properties:
@@ -425,8 +436,8 @@ Screens:
                         Value: =Parent.Default
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardKey8.Y + DataCardKey8.Height + 4
-                  - ErrorMessage8:
+                        Y: =DataCardKey18.Y + DataCardKey18.Height + 4
+                  - ErrorMessage18:
                       Control: Text@0.0.51
                       MetadataKey: ErrorMessage
                       Properties:
@@ -435,8 +446,8 @@ Screens:
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardValue8.Y + DataCardValue8.Height
-                  - StarVisible8:
+                        Y: =DataCardValue17.Y + DataCardValue17.Height
+                  - StarVisible18:
                       Control: Text@0.0.51
                       MetadataKey: FieldRequired
                       Properties:
@@ -445,22 +456,22 @@ Screens:
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
-                        Y: =DataCardKey8.Y
-            - Tipo_Persona_que_Realiza_Movilidad_DataCard1:
+                        Y: =DataCardKey18.Y
+            - Tipo de contenido_DataCard1:
                 Control: TypedDataCard@1.0.7
-                Variant: TextualEdit
+                Variant: ComboBoxEdit
+                IsLocked: true
                 Properties:
-                  DataField: ="Tipo_Persona_que_Realiza_Movilid"
-                  Default: =ThisItem.Tipo_Persona_que_Realiza_Movilidad
-                  DisplayName: =DataSourceInfo([@Profesor_Visitante],DataSourceInfo.DisplayName,Tipo_Persona_que_Realiza_Movilidad)
-                  MaxLength: =DataSourceInfo([@Profesor_Visitante], DataSourceInfo.MaxLength, Tipo_Persona_que_Realiza_Movilidad)
+                  DataField: ="{ContentType}"
+                  Default: =ThisItem.'Tipo de contenido'
+                  DisplayName: =DataSourceInfo([@BD_Profesores_Planta],DataSourceInfo.DisplayName,'{ContentType}')
                   Required: =false
-                  Update: =DataCardValue9.Value
-                  Width: =266
+                  Update: =DataCardValue18.Selected
+                  Width: =415
                   X: =1
                   Y: =2
                 Children:
-                  - DataCardKey9:
+                  - DataCardKey19:
                       Control: Text@0.0.51
                       MetadataKey: FieldName
                       Properties:
@@ -471,20 +482,20 @@ Screens:
                         Wrap: =false
                         X: =24
                         Y: =10
-                  - DataCardValue9:
-                      Control: TextInput@0.0.54
+                  - DataCardValue18:
+                      Control: ComboBox@0.0.51
                       MetadataKey: FieldValue
                       Properties:
                         AccessibleLabel: =Parent.DisplayName
+                        DefaultSelectedItems: =[Parent.Default]
                         DisplayMode: =Parent.DisplayMode
-                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                        Items: =Choices([@BD_Profesores_Planta].'{ContentType}')
                         Required: =Parent.Required
                         ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                        Value: =Parent.Default
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardKey9.Y + DataCardKey9.Height + 4
-                  - ErrorMessage9:
+                        Y: =DataCardKey19.Y + DataCardKey19.Height + 4
+                  - ErrorMessage19:
                       Control: Text@0.0.51
                       MetadataKey: ErrorMessage
                       Properties:
@@ -493,198 +504,30 @@ Screens:
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardValue9.Y + DataCardValue9.Height
-                  - StarVisible9:
+                        Y: =DataCardValue18.Y + DataCardValue18.Height
+                  - StarVisible19:
                       Control: Text@0.0.51
                       MetadataKey: FieldRequired
                       Properties:
                         Align: ='TextCanvas.Align'.Center
-                        Height: =30
+                        Height: =20
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
-                        Y: =DataCardKey9.Y
-            - Numero_Documento_DataCard1:
-                Control: TypedDataCard@1.0.7
-                Variant: TextualEdit
-                Properties:
-                  DataField: ="Numero_Documento"
-                  Default: =ThisItem.Numero_Documento
-                  DisplayName: =DataSourceInfo([@Profesor_Visitante],DataSourceInfo.DisplayName,Numero_Documento)
-                  MaxLength: =DataSourceInfo([@Profesor_Visitante], DataSourceInfo.MaxLength, Numero_Documento)
-                  Required: =false
-                  Update: =DataCardValue10.Value
-                  Width: =266
-                  X: =2
-                  Y: =2
-                Children:
-                  - DataCardKey10:
-                      Control: Text@0.0.51
-                      MetadataKey: FieldName
-                      Properties:
-                        Height: =22
-                        Text: =Parent.DisplayName
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =Parent.Width - 48
-                        Wrap: =false
-                        X: =24
-                        Y: =10
-                  - DataCardValue10:
-                      Control: TextInput@0.0.54
-                      MetadataKey: FieldValue
-                      Properties:
-                        AccessibleLabel: =Parent.DisplayName
-                        DisplayMode: =Parent.DisplayMode
-                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                        Required: =Parent.Required
-                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                        Value: =Parent.Default
-                        Width: =Parent.Width - 48
-                        X: =24
-                        Y: =DataCardKey10.Y + DataCardKey10.Height + 4
-                  - ErrorMessage10:
-                      Control: Text@0.0.51
-                      MetadataKey: ErrorMessage
-                      Properties:
-                        Height: =30
-                        Text: =Parent.Error
-                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =Parent.Width - 48
-                        X: =24
-                        Y: =DataCardValue10.Y + DataCardValue10.Height
-                  - StarVisible10:
-                      Control: Text@0.0.51
-                      MetadataKey: FieldRequired
-                      Properties:
-                        Align: ='TextCanvas.Align'.Center
-                        Height: =30
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Y: =DataCardKey10.Y
-            - Nombre_Persona_que_Realiza_Movilidad_DataCard1:
-                Control: TypedDataCard@1.0.7
-                Variant: TextualEdit
-                Properties:
-                  DataField: ="Nombre_Persona_que_Realiza_Movil"
-                  Default: =ThisItem.Nombre_Persona_que_Realiza_Movilidad
-                  DisplayName: =DataSourceInfo([@Profesor_Visitante],DataSourceInfo.DisplayName,Nombre_Persona_que_Realiza_Movilidad)
-                  MaxLength: =DataSourceInfo([@Profesor_Visitante], DataSourceInfo.MaxLength, Nombre_Persona_que_Realiza_Movilidad)
-                  Required: =false
-                  Update: =DataCardValue11.Value
-                  Width: =266
-                  X: =0
-                  Y: =3
-                Children:
-                  - DataCardKey11:
-                      Control: Text@0.0.51
-                      MetadataKey: FieldName
-                      Properties:
-                        Height: =22
-                        Text: =Parent.DisplayName
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =Parent.Width - 48
-                        Wrap: =false
-                        X: =24
-                        Y: =10
-                  - DataCardValue11:
-                      Control: TextInput@0.0.54
-                      MetadataKey: FieldValue
-                      Properties:
-                        AccessibleLabel: =Parent.DisplayName
-                        DisplayMode: =Parent.DisplayMode
-                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                        Required: =Parent.Required
-                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                        Value: =Parent.Default
-                        Width: =Parent.Width - 48
-                        X: =24
-                        Y: =DataCardKey11.Y + DataCardKey11.Height + 4
-                  - ErrorMessage11:
-                      Control: Text@0.0.51
-                      MetadataKey: ErrorMessage
-                      Properties:
-                        Height: =30
-                        Text: =Parent.Error
-                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =Parent.Width - 48
-                        X: =24
-                        Y: =DataCardValue11.Y + DataCardValue11.Height
-                  - StarVisible11:
-                      Control: Text@0.0.51
-                      MetadataKey: FieldRequired
-                      Properties:
-                        Align: ='TextCanvas.Align'.Center
-                        Height: =30
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Y: =DataCardKey11.Y
-            - Tipo_Documento_Quien_Realizo_Movilidad_DataCard1:
-                Control: TypedDataCard@1.0.7
-                Variant: TextualEdit
-                Properties:
-                  DataField: ="Tipo_Documento_Quien_Realizo_Mov"
-                  Default: =ThisItem.Tipo_Documento_Quien_Realizo_Movilidad
-                  DisplayName: =DataSourceInfo([@Profesor_Visitante],DataSourceInfo.DisplayName,Tipo_Documento_Quien_Realizo_Movilidad)
-                  MaxLength: =DataSourceInfo([@Profesor_Visitante], DataSourceInfo.MaxLength, Tipo_Documento_Quien_Realizo_Movilidad)
-                  Required: =false
-                  Update: =DropdownCanvas1.Selected.Value
-                  Width: =266
-                  X: =1
-                  Y: =3
-                Children:
-                  - DataCardKey12:
-                      Control: Text@0.0.51
-                      MetadataKey: FieldName
-                      Properties:
-                        Height: =22
-                        Text: =Parent.DisplayName
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =Parent.Width - 48
-                        Wrap: =false
-                        X: =24
-                        Y: =10
-                  - ErrorMessage12:
-                      Control: Text@0.0.51
-                      MetadataKey: ErrorMessage
-                      Properties:
-                        Height: =30
-                        Text: =Parent.Error
-                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =Parent.Width - 48
-                        X: =24
-                        Y: =DropdownCanvas1.Y + DropdownCanvas1.Height
-                  - StarVisible12:
-                      Control: Text@0.0.51
-                      MetadataKey: FieldRequired
-                      Properties:
-                        Align: ='TextCanvas.Align'.Center
-                        Height: =30
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Y: =DataCardKey12.Y
-                  - DropdownCanvas1:
-                      Control: DropDown@0.0.45
-                      Properties:
-                        Items: =["Cédula de Ciudadanía", "Tarjeta de Identidad", "Pasaporte"]
-                        Width: =Parent.Width - 48
-                        X: =24
-                        Y: =DataCardKey12.Y + DataCardKey12.Height + 4
-      - ButtonCanvas1:
+                        Y: =DataCardKey19.Y
+      - ButtonCanvas4:
           Control: Button@0.0.45
           Properties:
             OnSelect: |-
-              =SubmitForm(Profesores_Visitantes_Form);
-              NewForm(Profesores_Visitantes_Form)
+              =SubmitForm(Prof_Planta_form);
+              NewForm(Prof_Planta_form)
             Text: ="Guardar"
-            X: =988
-            Y: =645
-      - ButtonCanvas2:
+            X: =1018
+            Y: =610
+      - ButtonCanvas4_1:
           Control: Button@0.0.45
           Properties:
-            OnSelect: =ResetForm(Profesores_Visitantes_Form)
+            OnSelect: =ResetForm(Prof_Planta_form)
             Text: ="Limpiar"
-            X: =1109
-            Y: =645
+            X: =1146
+            Y: =610

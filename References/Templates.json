@@ -34,6 +34,11 @@
       "Name": "timer",
       "Version": "2.1.0",
       "Template": "<widget xmlns=\"http://openajax.org/metadata\" spec=\"1.0\" id=\"http://microsoft.com/appmagic/timer\" name=\"timer\" jsClass=\"AppMagic.Controls.Timer\" version=\"2.1.0\" styleable=\"true\" runtimeCost=\"1\" xmlns:appMagic=\"http://schemas.microsoft.com/appMagic\"><author name=\"Microsoft AppMagic\" /><license type=\"text/html\"><![CDATA[<p>TODO:  Need license text here.</p>]]></license><description><![CDATA[Timer Control description here.]]></description><requires><require type=\"css\" src=\"css/timer.css\" /><require type=\"javascript\" src=\"js/timer.js\" /></requires><appMagic:capabilities autoBorders=\"true\" autoFocusedBorders=\"true\" autoFill=\"true\" autoPointerViewState=\"true\" autoDisabledViewState=\"true\" autoBorderRadius=\"true\" contextualViewsEnabled=\"true\" screenActiveAware=\"true\" isVersionFlexible=\"true\" /><content><![CDATA[\r\n    <div class=\"appmagic-timer\">\r\n      <button\r\n        class=\"timer-button\"\r\n        touch-action=\"pan-x pan-y\"\r\n        data-bind=\"{\r\n          attr: {\r\n            title: properties.Tooltip,\r\n            'aria-label': accessibleLabel,\r\n            'aria-describedby': descriptionId\r\n          },\r\n          disable: viewState.displayMode() != AppMagic.Constants.DisplayMode.Edit,\r\n          event: {\r\n            click: handleClick\r\n          },\r\n          css: {\r\n            bottom: properties.VerticalAlign() === 'bottom',\r\n            center: properties.Align() === 'center',\r\n            disabled: viewState.displayMode() === AppMagic.Constants.DisplayMode.Disabled,\r\n            justify: properties.Align() === 'justify',\r\n            left: properties.Align() === 'left',\r\n            middle: properties.VerticalAlign() === 'middle',\r\n            readonly: viewState.displayMode() === AppMagic.Constants.DisplayMode.View,\r\n            right: properties.Align() === 'right',\r\n            strikethrough: properties.Strikethrough,\r\n            top: properties.VerticalAlign() === 'top',\r\n            underline: properties.Underline\r\n          },\r\n          style: {\r\n            color: autoProperties.Color,\r\n            fontFamily: properties.Font,\r\n            fontSize: properties.Size,\r\n            fontStyle: properties.Italic,\r\n            fontWeight: properties.FontWeight,\r\n            paddingBottom: properties.PaddingBottom,\r\n            paddingLeft: properties.PaddingLeft,\r\n            paddingRight: properties.PaddingRight,\r\n            paddingTop: properties.PaddingTop,\r\n            textAlign: properties.Align\r\n          }\r\n      }\">\r\n        <div\r\n          class=\"timer-label\"\r\n          data-bind=\"{\r\n            text: properties.Text\r\n        }\"></div>\r\n      </button>\r\n      <div\r\n        data-bind=\"{\r\n          text: AppMagic.Strings.TimerInstructions,\r\n          visible: false,\r\n          attr: {\r\n            id: descriptionId,\r\n          },\r\n        }\"\r\n        ></div>\r\n      <!-- Screen reader message updated periodically when timer runs. Interval defined in TimerViewModel.ts -->\r\n      <div\r\n        class=\"elapsed-time-message\"\r\n        data-bind=\"{\r\n          attr: {\r\n            'aria-label': AppMagic.Strings.TimerLastStatusLabel,\r\n            'aria-live': properties.Visible() ? 'polite' : null\r\n          },\r\n          text: timerNotificationMessage\r\n      }\"></div>\r\n    </div>\r\n    ]]></content><properties><property name=\"Start\" localizedName=\"##timer_Start##\" datatype=\"boolean\" defaultValue=\"false\" nullDefault=\"false\"><title>When true, timer will start playing or continue to play. When false, timer stops playing</title><appMagic:category>data</appMagic:category><appMagic:helperUI>boolean</appMagic:helperUI><appMagic:displayName>##timer_Start_DisplayName##</appMagic:displayName><appMagic:tooltip>##timer_Start_Tooltip##</appMagic:tooltip></property><property name=\"Duration\" localizedName=\"##timer_Duration##\" datatype=\"Number\" defaultValue=\"60000\" minimum=\"0\" nullDefault=\"0\" isPrimaryInputProperty=\"true\"><title>Duration value for the timer</title><appMagic:category>data</appMagic:category><appMagic:displayName>##timer_Duration_DisplayName##</appMagic:displayName><appMagic:tooltip>##timer_Duration_Tooltip##</appMagic:tooltip></property><property name=\"Repeat\" localizedName=\"##timer_Repeat##\" datatype=\"Boolean\" defaultValue=\"false\" nullDefault=\"false\"><title>When End is reached, reset Value property to 0 and continues</title><appMagic:category>data</appMagic:category><appMagic:helperUI>boolean</appMagic:helperUI><appMagic:displayName>##timer_Repeat_DisplayName##</appMagic:displayName><appMagic:tooltip>##timer_Repeat_Tooltip##</appMagic:tooltip></property><property name=\"Reset\" localizedName=\"##timer_Reset##\" datatype=\"boolean\" defaultValue=\"false\" nullDefault=\"false\"><title>When transistioning from false to true, Resets timer</title><appMagic:category>data</appMagic:category><appMagic:helperUI>boolean</appMagic:helperUI><appMagic:displayName>##timer_Reset_DisplayName##</appMagic:displayName><appMagic:tooltip>##timer_Reset_Tooltip##</appMagic:tooltip></property><property name=\"AutoStart\" localizedName=\"##timer_AutoStart##\" datatype=\"Boolean\" defaultValue=\"false\"><title>Automatically start timer when parent screen becomes active</title><appMagic:category>data</appMagic:category><appMagic:helperUI>boolean</appMagic:helperUI><appMagic:displayName>##timer_AutoStart_DisplayName##</appMagic:displayName><appMagic:tooltip>##timer_AutoStart_Tooltip##</appMagic:tooltip></property><property name=\"AutoPause\" localizedName=\"##timer_AutoPause##\" datatype=\"Boolean\" defaultValue=\"true\"><title>Automatically pause timer when parent screen becomes inactive</title><appMagic:category>data</appMagic:category><appMagic:helperUI>boolean</appMagic:helperUI><appMagic:displayName>##timer_AutoPause_DisplayName##</appMagic:displayName><appMagic:tooltip>##timer_AutoPause_Tooltip##</appMagic:tooltip></property><property name=\"Value\" localizedName=\"##timer_Value##\" datatype=\"Number\" direction=\"out\" IsPrimaryOutputProperty=\"true\"><title>Value of the timer in milliseconds</title><appMagic:category>data</appMagic:category></property><!-- TASK: 85476 - Do behavior properties make sense as input only? --><property name=\"OnTimerStart\" localizedName=\"##timer_OnTimerStart##\" datatype=\"Boolean\" defaultValue=\"false\" direction=\"in\"><title>Timer Start</title><appMagic:category>behavior</appMagic:category><appMagic:displayName>##timer_OnTimerStart_DisplayName##</appMagic:displayName><appMagic:tooltip>##timer_OnTimerStart_Tooltip##</appMagic:tooltip></property><property name=\"OnTimerEnd\" localizedName=\"##timer_OnTimerEnd##\" datatype=\"Boolean\" defaultValue=\"false\" direction=\"in\" isPrimaryBehaviorProperty=\"true\"><title>Timer End</title><appMagic:category>behavior</appMagic:category><appMagic:displayName>##timer_OnTimerEnd_DisplayName##</appMagic:displayName><appMagic:tooltip>##timer_OnTimerEnd_Tooltip##</appMagic:tooltip></property></properties><appMagic:includeProperties><!--Behavior --><appMagic:includeProperty name=\"OnSelect\" direction=\"in\" /><!-- Data --><appMagic:includeProperty name=\"Text\" defaultValue=\"Text(Time(0, 0, Self.Value/1000), &quot;hh:mm:ss&quot;)\" isExpr=\"true\" /><appMagic:includeProperty name=\"Tooltip\" /><appMagic:includeProperty name=\"ContentLanguage\" /><!-- Design --><appMagic:includeProperty name=\"BorderColor\" defaultValue=\"ColorFade(Self.Fill, -15%)\" /><appMagic:includeProperty name=\"RadiusTopLeft\" defaultValue=\"10\" /><appMagic:includeProperty name=\"RadiusTopRight\" defaultValue=\"10\" /><appMagic:includeProperty name=\"RadiusBottomLeft\" defaultValue=\"10\" /><appMagic:includeProperty name=\"RadiusBottomRight\" defaultValue=\"10\" /><appMagic:includeProperty name=\"DisabledBorderColor\" defaultValue=\"ColorFade(Self.BorderColor, 70%)\" /><appMagic:includeProperty name=\"PressedBorderColor\" defaultValue=\"Self.Fill\" /><appMagic:includeProperty name=\"HoverBorderColor\" defaultValue=\"ColorFade(Self.BorderColor, 20%)\" /><appMagic:includeProperty name=\"BorderStyle\" /><appMagic:includeProperty name=\"BorderThickness\" defaultValue=\"2\" /><appMagic:includeProperty name=\"FocusedBorderColor\" defaultValue=\"Self.BorderColor\" isExpr=\"true\" /><appMagic:includeProperty name=\"FocusedBorderThickness\" defaultValue=\"4\" /><appMagic:includeProperty name=\"Color\" defaultValue=\"RGBA(255, 255, 255, 1)\" /><appMagic:includeProperty name=\"DisabledColor\" defaultValue=\"ColorFade(Self.Fill, 90%)\" /><appMagic:includeProperty name=\"PressedColor\" defaultValue=\"Self.Fill\" /><appMagic:includeProperty name=\"HoverColor\" defaultValue=\"Self.Color\" /><appMagic:includeProperty name=\"DisplayMode\" /><appMagic:includeProperty name=\"Fill\" defaultValue=\"RGBA(35, 31, 32, 1)\" /><appMagic:includeProperty name=\"DisabledFill\" defaultValue=\"ColorFade(Self.Fill, 70%)\" /><appMagic:includeProperty name=\"PressedFill\" defaultValue=\"Self.Color\" /><appMagic:includeProperty name=\"HoverFill\" defaultValue=\"ColorFade(Self.Fill, 20%)\" /><appMagic:includeProperty name=\"Font\" /><appMagic:includeProperty name=\"Size\" defaultValue=\"13\" phoneDefaultValue=\"23\" /><appMagic:includeProperty name=\"FontWeight\" defaultValue=\"%FontWeight.RESERVED%.Normal\" /><appMagic:includeProperty name=\"Italic\" /><appMagic:includeProperty name=\"Underline\" /><appMagic:includeProperty name=\"Strikethrough\" /><appMagic:includeProperty name=\"Align\" defaultValue=\"%Align.RESERVED%.Center\" /><appMagic:includeProperty name=\"PaddingTop\" defaultValue=\"5\" /><appMagic:includeProperty name=\"PaddingRight\" defaultValue=\"5\" /><appMagic:includeProperty name=\"PaddingBottom\" defaultValue=\"5\" /><appMagic:includeProperty name=\"PaddingLeft\" defaultValue=\"5\" /><appMagic:includeProperty name=\"Visible\" /><appMagic:includeProperty name=\"VerticalAlign\" defaultValue=\"%VerticalAlign.RESERVED%.Middle\" /><appMagic:includeProperty name=\"X\" /><appMagic:includeProperty name=\"Y\" /><appMagic:includeProperty name=\"Width\" defaultValue=\"160\" phoneDefaultValue=\"280\" webDefaultValue=\"85\" /><appMagic:includeProperty name=\"Height\" defaultValue=\"40\" phoneDefaultValue=\"70\" webDefaultValue=\"32\" /><appMagic:includeProperty name=\"TabIndex\" /><!-- Hidden --><appMagic:includeProperty name=\"maximumHeight\" defaultValue=\"768\" /><appMagic:includeProperty name=\"maximumWidth\" defaultValue=\"1366\" /><appMagic:includeProperty name=\"minimumHeight\" defaultValue=\"5\" /><appMagic:includeProperty name=\"minimumWidth\" defaultValue=\"5\" /></appMagic:includeProperties><!--Property Dependencies --><appMagic:propertyDependencies><appMagic:propertyDependency input=\"Start\" output=\"Value\" /><appMagic:propertyDependency input=\"AutoStart\" output=\"Value\" /><appMagic:propertyDependency input=\"Reset\" output=\"Value\" /></appMagic:propertyDependencies><appMagic:insertMetadata isDeviceOptimized=\"true\"><appMagic:category name=\"Input\" priority=\"130\" /></appMagic:insertMetadata><!-- Display metadata providing property visibility, order, sections, and grouping in UI (e.g. properties panel) --><appMagic:displayMetadata><appMagic:section><appMagic:property name=\"Text\" /><appMagic:property name=\"Duration\" /><appMagic:property name=\"Repeat\" /><appMagic:property name=\"AutoStart\" /><appMagic:property name=\"AutoPause\" /><appMagic:property name=\"DisplayMode\" /></appMagic:section><appMagic:section><appMagic:property name=\"Visible\" /><appMagic:propertyGroup name=\"Position\"><appMagic:property name=\"X\" /><appMagic:property name=\"Y\" /></appMagic:propertyGroup><appMagic:propertyGroup name=\"Size\"><appMagic:property name=\"Width\" /><appMagic:property name=\"Height\" /></appMagic:propertyGroup><appMagic:propertyGroup name=\"Padding\"><appMagic:property name=\"PaddingTop\" labelOverride=\"##Padding_Top_Title##\" /><appMagic:property name=\"PaddingBottom\" labelOverride=\"##Padding_Bottom_Title##\" /><appMagic:property name=\"PaddingLeft\" labelOverride=\"##Padding_Left_Title##\" /><appMagic:property name=\"PaddingRight\" labelOverride=\"##Padding_Right_Title##\" /></appMagic:propertyGroup></appMagic:section><appMagic:section><appMagic:propertyGroup name=\"Color\"><appMagic:property name=\"Color\" showInFloatie=\"true\" /><appMagic:property name=\"Fill\" showInFloatie=\"true\" /></appMagic:propertyGroup><appMagic:property name=\"Font\" displayType=\"FontEnum\" showInFloatie=\"true\" /><appMagic:property name=\"Size\" labelOverride=\"##FontSize_Property##\" showInFloatie=\"true\" /><appMagic:property name=\"FontWeight\" displayType=\"EnumIcon\" itemsOrder=\"Bold;Semibold;Normal;Lighter\" /><appMagic:propertyGroup name=\"Style\"><appMagic:property name=\"Italic\" displayType=\"ToggleButton\" /><appMagic:property name=\"Underline\" displayType=\"ToggleButton\" /><appMagic:property name=\"Strikethrough\" displayType=\"ToggleButton\" /></appMagic:propertyGroup><appMagic:property name=\"Align\" displayType=\"EnumButtons\" itemsOrder=\"Left;Center;Right;Justify\" labelOverride=\"##FontAlign_Property##\" showInFloatie=\"true\" floatieDisplayType=\"FaceplateIconEnum\" /><appMagic:propertyGroup name=\"Border\"><appMagic:property name=\"BorderStyle\" /><appMagic:property name=\"BorderThickness\" /><appMagic:property name=\"BorderColor\" /></appMagic:propertyGroup><appMagic:propertyGroup name=\"Radius\"><appMagic:property name=\"RadiusTopLeft\" /><appMagic:property name=\"RadiusTopRight\" /><appMagic:property name=\"RadiusBottomLeft\" /><appMagic:property name=\"RadiusBottomRight\" /></appMagic:propertyGroup></appMagic:section><appMagic:section><appMagic:propertyGroup name=\"DisabledColor\"><appMagic:property name=\"DisabledColor\" /><appMagic:property name=\"DisabledFill\" /><appMagic:property name=\"DisabledBorderColor\" /></appMagic:propertyGroup><appMagic:propertyGroup name=\"HoverColor\"><appMagic:property name=\"HoverColor\" /><appMagic:property name=\"HoverFill\" /><appMagic:property name=\"HoverBorderColor\" /></appMagic:propertyGroup><appMagic:propertyGroup name=\"PressedColor\"><appMagic:property name=\"PressedColor\" /><appMagic:property name=\"PressedFill\" /><appMagic:property name=\"PressedBorderColor\" /></appMagic:propertyGroup><appMagic:property name=\"Tooltip\" /><appMagic:property name=\"TabIndex\" /></appMagic:section><appMagic:section><appMagic:property name=\"Start\" hideInPropertyPanel=\"true\" /><appMagic:property name=\"Reset\" hideInPropertyPanel=\"true\" /></appMagic:section></appMagic:displayMetadata><appMagic:conversion from=\"2.0.0\" to=\"2.0.1\"><!-- Accessibility fixes for KO template --></appMagic:conversion><appMagic:conversion from=\"2.0.1\" to=\"2.1.0\"><appMagic:conversionAction type=\"add\" name=\"ContentLanguage\" /></appMagic:conversion></widget>"
+    },
+    {
+      "Name": "PowerAppsOneGridTemplate_dataField",
+      "Version": "1.5.0",
+      "Template": "<openAjax:widget spec=\"1.0\" id=\"http://microsoft.com/appmagic/pcfDataField\" name=\"pcfDataField\" jsClass=\"AppMagic.Controls.PcfDataFieldControl\" version=\"1.5.0\" xmlns=\"http://schemas.microsoft.com/appMagic\" xmlns:openAjax=\"http://openajax.org/metadata\"><openAjax:author name=\"Microsoft AppMagic\" /><openAjax:license type=\"text/html\"><![CDATA[<p>TODO:  Need license text here.</p>]]></openAjax:license><openAjax:requires><!--\r\n      Do not define any PCF dependencies here.  Since this control cannot exist without a PCF dataset enabled\r\n      parent control, defer any required dependencies to the parent in order to avoid load order conflicts.\r\n    --></openAjax:requires><capabilities supportsNestedControls=\"false\" replicatesNestedControls=\"false\" contextualViewsEnabled=\"false\" autoPointerViewState=\"false\" autoDisabledViewState=\"false\" fieldSelectionFieldPropertyInvariantName=\"FieldName\" fieldSelectionDisplayNamePropertyInvariantName=\"FieldDisplayName\" isLockable=\"true\" intangible=\"false\" isVersionFlexible=\"true\" /><openAjax:properties><openAjax:property name=\"FieldName\" localizedName=\"##dataCard_FieldName##\" datatype=\"String\" defaultValue=\"&quot;%DATACARD_FIELD_NAME.ID%&quot;\" isExpr=\"true\"><displayName>##dataCard_FieldName##</displayName><tooltip>##dataCard_FieldName##</tooltip></openAjax:property><openAjax:property name=\"Order\" localizedName=\"##dataGrid_Column_Order##\" datatype=\"Number\" defaultValue=\"-1\" isExpr=\"true\"><displayName>##dataGrid_Column_Order_Text##</displayName><tooltip>##dataGrid_Column_Order_ToolTip##</tooltip></openAjax:property><openAjax:property name=\"FieldVariantName\" localizedName=\"##dataGrid_Column_FieldVariantName##\" datatype=\"String\" hidden=\"true\" defaultValue=\"&quot;%DATACARD_FIELD_VARIANT_NAME.ID%&quot;\" isExpr=\"true\" /><openAjax:property name=\"FieldDisplayName\" localizedName=\"##dataGrid_Column_DisplayName##\" datatype=\"String\" defaultValue=\"&quot;%DATACARD_FIELD_DISPLAYNAME.ID%&quot;\" isExpr=\"true\"><category>data</category><displayName>##dataGrid_Column_DisplayName_Text##</displayName></openAjax:property><!-- Default value to empty string for control upgrade, it will be overridden in ControlImporter.cs --><openAjax:property name=\"FieldType\" localizedName=\"##dataTableColumn_FieldType##\" datatype=\"String\" defaultValue=\"&quot;&quot;\" isExpr=\"true\" hidden=\"false\" direction=\"in\"><displayName>##dataTableColumn_FieldType##</displayName><tooltip>##dataTableColumn_FieldType##</tooltip></openAjax:property></openAjax:properties><includeProperties><includeProperty name=\"ContentLanguage\" /><includeProperty name=\"X\" hidden=\"true\" /><includeProperty name=\"Y\" hidden=\"true\" /><includeProperty name=\"Width\" hidden=\"true\" /><includeProperty name=\"Height\" hidden=\"true\" /><includeProperty name=\"Visible\" defaultValue=\"false\" hidden=\"true\" /></includeProperties><!-- Display metadata providing property visibility, order, sections, and grouping in UI (e.g. properties panel) --><displayMetadata><section><property name=\"Order\" datatype=\"Number\" hideInPropertyPanel=\"true\" /><property name=\"FieldName\" hideInPropertyPanel=\"true\" /></section></displayMetadata><controlVariants><!-- Text Column --><controlVariant name=\"textualColumn\" localizedName=\"##textualColumn_DisplayName##\" supportedType=\"String\" isFallbackForVariantSelection=\"true\"><openAjax:properties><openAjax:property name=\"Type\" localizedName=\"##dataTableColumn_Type##\" defaultValue=\"s\" datatype=\"String\" hidden=\"true\"><title>##dataTableColumn_Type##</title><category>Data</category></openAjax:property></openAjax:properties></controlVariant></controlVariants><conversion from=\"1.0\" to=\"1.0.1\"><!-- Removed dependencies (requires); enabled isVersionFlexible. --></conversion><conversion from=\"1.0.1\" to=\"1.1.0\"><conversionAction type=\"add\" name=\"ContentLanguage\" /></conversion><conversion from=\"1.1.0\" to=\"1.2.0\"><conversionAction type=\"add\" name=\"FieldType\" /></conversion><conversion from=\"1.2.0\" to=\"1.3.0\"><conversionAction type=\"remove\" name=\"FieldType\" /></conversion><conversion from=\"1.3.0\" to=\"1.4.0\"><conversionAction type=\"add\" name=\"FieldType\" /></conversion><conversion from=\"1.4.0\" to=\"1.5.0\"><!-- JS class changed --></conversion></openAjax:widget>"
     }
   ],
   "PcfTemplates": [
@@ -1193,6 +1198,422 @@
             },
             {
               "Name": "BorderColor",
+              "Type": "add"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "PowerApps_CoreControls_ComboboxCanvas",
+      "Version": "0.0.51",
+      "PcfConversions": [
+        {
+          "From": "0.0.4",
+          "To": "0.0.5",
+          "Action": [
+            {
+              "Name": "IsSearchable",
+              "Type": "add"
+            },
+            {
+              "Name": "InputTextPlaceholder",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "0.0.6",
+          "To": "0.0.7",
+          "Action": [
+            {
+              "Name": "SearchText",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "0.0.9",
+          "To": "0.0.10",
+          "Action": [
+            {
+              "Name": "OnSelect",
+              "Type": "remove"
+            }
+          ]
+        },
+        {
+          "From": "0.0.14",
+          "To": "0.0.15",
+          "Action": [
+            {
+              "Name": "BasePaletteColor",
+              "Type": "add"
+            },
+            {
+              "Name": "FontSize",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "0.0.16",
+          "To": "0.0.17",
+          "Action": [
+            {
+              "Name": "ValidationState",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "0.0.20",
+          "To": "0.0.21",
+          "Action": [
+            {
+              "Name": "Font",
+              "Type": "add"
+            },
+            {
+              "Name": "FontColor",
+              "Type": "add"
+            },
+            {
+              "Name": "FontWeight",
+              "Type": "add"
+            },
+            {
+              "Name": "FontItalic",
+              "Type": "add"
+            },
+            {
+              "Name": "FontUnderline",
+              "Type": "add"
+            },
+            {
+              "Name": "FontStrikethrough",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "0.0.27",
+          "To": "0.0.28",
+          "Action": [
+            {
+              "Name": "Appearance",
+              "Type": "add"
+            },
+            {
+              "Name": "BorderColor",
+              "Type": "add"
+            },
+            {
+              "Name": "BorderRadius",
+              "Type": "add"
+            },
+            {
+              "Name": "BorderStyle",
+              "Type": "add"
+            },
+            {
+              "Name": "BorderThickness",
+              "Type": "add"
+            },
+            {
+              "Name": "DisabledBorderColor",
+              "Type": "add"
+            },
+            {
+              "Name": "Fill",
+              "Type": "add"
+            },
+            {
+              "Name": "FocusedBorderColor",
+              "Type": "add"
+            },
+            {
+              "Name": "HoverBorderColor",
+              "Type": "add"
+            },
+            {
+              "Name": "PaddingBottom",
+              "Type": "add"
+            },
+            {
+              "Name": "PaddingLeft",
+              "Type": "add"
+            },
+            {
+              "Name": "PaddingRight",
+              "Type": "add"
+            },
+            {
+              "Name": "PaddingTop",
+              "Type": "add"
+            },
+            {
+              "Name": "PressedBorderColor",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "0.0.37",
+          "To": "0.0.38",
+          "Action": [
+            {
+              "Name": "BorderStyle",
+              "Type": "remove"
+            },
+            {
+              "Name": "BorderThickness",
+              "Type": "remove"
+            },
+            {
+              "Name": "HoverBorderColor",
+              "Type": "remove"
+            },
+            {
+              "Name": "PressedBorderColor",
+              "Type": "remove"
+            },
+            {
+              "Name": "DisabledBorderColor",
+              "Type": "remove"
+            },
+            {
+              "Name": "FocusedBorderColor",
+              "Type": "remove"
+            },
+            {
+              "Name": "BorderColor",
+              "Type": "remove"
+            }
+          ]
+        },
+        {
+          "From": "0.0.38",
+          "To": "0.0.39",
+          "Action": [
+            {
+              "Name": "BorderStyle",
+              "Type": "add"
+            },
+            {
+              "Name": "BorderThickness",
+              "Type": "add"
+            },
+            {
+              "Name": "BorderColor",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "0.0.43",
+          "To": "0.0.44",
+          "Action": [
+            {
+              "Name": "Required",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "0.0.46",
+          "To": "0.0.47",
+          "Action": [
+            {
+              "Name": "TriggerOutput",
+              "Type": "add"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "PowerAppsOneGrid",
+      "Version": "1.0.278",
+      "PcfConversions": [
+        {
+          "From": "1.0.103",
+          "To": "1.0.104",
+          "Action": [
+            {
+              "Name": "BasePaletteColor",
+              "Type": "add"
+            },
+            {
+              "Name": "AccessibleLabel",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.109",
+          "To": "1.0.111",
+          "Action": [
+            {
+              "Name": "ShowFooter",
+              "Type": "add"
+            },
+            {
+              "Name": "ShowColumnHeaders",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.112",
+          "To": "1.0.113",
+          "Action": [
+            {
+              "Name": "ShowAvatar",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.116",
+          "To": "1.0.117",
+          "Action": [
+            {
+              "Name": "NoDataText",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.117",
+          "To": "1.0.118",
+          "Action": [
+            {
+              "Name": "FontSize",
+              "Type": "add"
+            },
+            {
+              "Name": "HeaderFontSize",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.129",
+          "To": "1.0.130",
+          "Action": [
+            {
+              "Name": "EnableAggregation",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.130",
+          "To": "1.0.131",
+          "Action": [
+            {
+              "Name": "Font",
+              "Type": "add"
+            },
+            {
+              "Name": "FontColor",
+              "Type": "add"
+            },
+            {
+              "Name": "FontWeight",
+              "Type": "add"
+            },
+            {
+              "Name": "HeaderFont",
+              "Type": "add"
+            },
+            {
+              "Name": "HeaderFontColor",
+              "Type": "add"
+            },
+            {
+              "Name": "HeaderFontWeight",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.150",
+          "To": "1.0.151",
+          "Action": [
+            {
+              "Name": "OnSelect",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.162",
+          "To": "1.0.163",
+          "Action": [
+            {
+              "Name": "EnableColumnMoving",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.166",
+          "To": "1.0.167",
+          "Action": [
+            {
+              "Name": "DisableChildItemsEditing",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.183",
+          "To": "1.0.184",
+          "Action": [
+            {
+              "Name": "DefaultSelectedItems",
+              "Type": "remove"
+            }
+          ]
+        },
+        {
+          "From": "1.0.232",
+          "To": "1.0.233",
+          "Action": [
+            {
+              "Name": "DateTimeFormat",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.233",
+          "To": "1.0.234",
+          "Action": [
+            {
+              "Name": "DateOnlyFormat",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.242",
+          "To": "1.0.243",
+          "Action": [
+            {
+              "Name": "ContextualLookupColumnFilters",
+              "Type": "add"
+            }
+          ]
+        },
+        {
+          "From": "1.0.265",
+          "To": "1.0.266",
+          "Action": [
+            {
+              "Name": "LookupFilterBeginsWith",
               "Type": "add"
             }
           ]
